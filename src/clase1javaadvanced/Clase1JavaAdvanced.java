@@ -34,7 +34,7 @@ public class Clase1JavaAdvanced {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         
         //Esto es procesador y memeodia Micrones de segundos en tiempo
         
@@ -71,8 +71,9 @@ public class Clase1JavaAdvanced {
             public void run() {
                 for(int a = 1; a<=10; a++){
                     System.out.println(descripcion +":"+a);
-                    dormir(0);
-                    this.yield();
+                    dormir(500);
+                  //  System.out.println("--"+this.getState());
+                //    this.yield();
                 }
                 
             }
@@ -94,22 +95,37 @@ public class Clase1JavaAdvanced {
             
         Hilo hilo1 = new Hilo("hilo 1");
         Hilo hilo2 = new Hilo("hilo 2");
-        System.out.println(hilo1.getClass().getName());
+        //System.out.println(hilo1.getClass().getName());
+        //System.out.println(hilo1.getState());
+        //System.out.println(hilo1.isAlive());
         
         //El metodo start no ejecuta en un hilo
         
         //hilo1.start();
         //hilo2.start();
         
+        
+        /*
+        NEW RUNNABLE BLOCKED                             terminated
+            .START() TIME_WAITING        .Sleep          muerte natural
+                     waiting             WAIT()          asetinato. Stop
+                     I/O
+        
+        */
         //el metodo run invoca al metodo Start en un hilo
         
         hilo1.start();
         hilo2.start(); //cuando bajamos el Sleep varia el orden de ejecucioon entre cada hilo
                       // la aperrtura tarda
-        
+        hilo1.setPriority(Thread.MAX_PRIORITY);
+        hilo2.setPriority(Thread.MIN_PRIORITY);
                       
         new Hilo("Hilo3").start();
         
+        //hilo1.start(); no se puede Startear 2 veces 1 Hilo.
+        //System.out.println(hilo1.getClass().getName());
+        //System.out.println(hilo1.getState());
+        //System.out.println(hilo1.isAlive());                
                       
         System.out.println("--Fin del programa.--");
         System.out.println("1");
@@ -119,6 +135,11 @@ public class Clase1JavaAdvanced {
         System.out.println("5");
         
         System.err.println("Ocurrio un errir!:");
+        
+        Thread.sleep(1000);
+        
+        System.out.println(hilo1.getState());
+        System.out.println(hilo1.isAlive());
     }// end main
     
 }// end class
