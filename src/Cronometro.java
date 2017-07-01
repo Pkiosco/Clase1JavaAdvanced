@@ -27,12 +27,15 @@ public class Cronometro implements Runnable{
     
     @Override
     public void run() {
-        if (correr) setText((++tiempo)+"");
-        try {
-            Thread.sleep(999);
-            
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Cronometro.class.getName()).log(Level.SEVERE, null, ex);
+        
+        while (true){
+            if (correr) setText((++tiempo)+"");
+            try {
+                Thread.sleep(999);
+
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Cronometro.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
@@ -67,6 +70,7 @@ public class Cronometro implements Runnable{
     }
     public void reset(){
     tiempo = 0;
+    setText(tiempo+"");
     }
     
     

@@ -52,6 +52,9 @@ private Thread tCrono;
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         lblHora = new javax.swing.JLabel();
+        btnPlay = new javax.swing.JButton();
+        btnPausa = new javax.swing.JButton();
+        btnStop = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +88,12 @@ private Thread tCrono;
         jLabel3.setText("Cronometro");
 
         lblHora.setText("jLabel4");
+
+        btnPlay.setText("Play");
+
+        btnPausa.setText("Pause");
+
+        btnStop.setText("Stop");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,6 +133,13 @@ private Thread tCrono;
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(btnPlay)
+                .addGap(42, 42, 42)
+                .addComponent(btnPausa)
+                .addGap(35, 35, 35)
+                .addComponent(btnStop))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +166,12 @@ private Thread tCrono;
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPlay)
+                    .addComponent(btnPausa)
+                    .addComponent(btnStop))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         pack();
@@ -208,9 +229,12 @@ private Thread tCrono;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPausa;
     private javax.swing.JButton btnPause;
+    private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnStart;
+    private javax.swing.JButton btnStop;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
