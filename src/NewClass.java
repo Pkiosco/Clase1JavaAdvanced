@@ -43,6 +43,8 @@ public class NewClass {
     Thread thilo2 =  new Thread(hilo2);
         thilo1.start();
         thilo2.start();
+        
+    new Thread(new Hilo("hilo3")).start();
     }
    
 }
